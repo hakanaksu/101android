@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">richerAndroid</string>
+    <string name="department">Department</string>
+    <string name="company">Company</string>
+    <string name="employee">Employee</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="salary">Salary</string>
+    <string name="load_test_company">load test Company</string>
+    <string name="company_not_loaded">Company not loaded</string>
+    <string name="newCompany">New Company</string>
+    <string name="editCompany">Edit Company</string>
+    <string name="deleteCompany">Delete Company</string>
+    <string name="loadCompany">Load Company</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="inuse">is in use</string>
+    <string name="areyousure">Are you sure?</string>
+    <string name="successful">successful</string>
+    <string name="namealreadyexists">name already exists</string>
+    <string name="invalidname">invalid name</string>
+    <string name="chooseacompany">choose a company</string>
+    <string name="nameoraddressisempty">name or address is empty</string>
+    <string name="addEmployee">add Employee</string>
+    <string name="createtheemployee">Create the Employee</string>
+    <string name="invalidsalaray">invalid salary</string>
+    <string name="addDepartment">add Department</string>
+    <string name="discardchanges">discard Changes?</string>
+    <string name="youvechangedsth">You have changed something!</string>
+    <string name="save">Save</string>
+    <string name="copy">Copy</string>
+    <string name="paste">Paste</string>
+    <string name="delete">Delete</string>
+    <string name="processfailed">process failed</string>
+    <string name="setasmanager">Set as Manager</string>
+    <string name="rename">Rename</string>
+    <string name="option">Option</string>
+</resources>

@@ -16,7 +16,6 @@ public class DepartmentClickActivity extends ListActivity{
 
 	Department dept;
 	
-	private String[] deptsString;
 	private ArrayAdapter<String> adapter;
 		
 	@Override
@@ -33,33 +32,45 @@ public class DepartmentClickActivity extends ListActivity{
 	}
 
 	/*
-	 * The Method create an Array of String. 
-	 * The Elements are the names of the Departmens, the manager and the Employees
+	 * The method create an Array of String. 
+	 * The elements are the names of the manager, the departmens and the employees
 	 * 
 	 * @return String[]
 	 * @author Hakan Aksu
 	 */
 	public String[] makeListOfAll(){
+		
+		//only the departments
 		LinkedList<Department> depts = (LinkedList<Department>)dept.getSubdepts();
-		deptsString = new String[depts.size()];
-		for(int i = 0;i<depts.size(); i++){
-			deptsString[i]= depts.get(i).getName();
+		String[] deptsString = new String[depts.size()];
+		for(int i = 0; i < depts.size(); i++){
+			deptsString[i]= "[D] " + depts.get(i).getName();
 		}
+		//only the employees
 		LinkedList<Employee> empl = (LinkedList<Employee>) dept.getEmployees();
 		String[] emplString = new String[empl.size()];
 		for(int i = 0; i < empl.size(); i++){
-			emplString[i]= empl.get(i).getName();
+			emplString[i] = "[E] " + empl.get(i).getName();
 		}
-		String[] all = new String[deptsString.length + emplString.length + 1];
-		for (int i = 0; i<all.length-1;i++){
-			if (i < deptsString.length){
-				all[i] = deptsString[i];
+		//all in one
+		String[] all;
+		//0 -> false, 1 -> true
+		int managerIsNotNull = 0;;
+		if (dept.getManager() == null){
+			managerIsNotNull = 0;
+			all = new String[deptsString.length + emplString.length];
+		} else {
+			managerIsNotNull = 1;
+			all = new String[deptsString.length + emplString.length + 1];
+			all[0] = "[M] " + dept.getManager().getName();
+		}
+		for (int i = managerIsNotNull; i <= (all.length - managerIsNotNull);i++){
+			if (i <= deptsString.length){
+				all[i] = deptsString[i - managerIsNotNull];
 			} else {
-				all[i+1] = emplString[i-deptsString.length];
+				all[i] = emplString[i - deptsString.length - managerIsNotNull];
 			}
 		}
-		//Der Manager wird als Trennung fŸr Departments und Employees verwendet
-		all[deptsString.length] = dept.getManager().getName() + " (Manager)";
 		return all;
 	}
 	
@@ -67,23 +78,34 @@ public class DepartmentClickActivity extends ListActivity{
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		Intent intent = null;
-		//The Sub-Departments are given to the next activity
-		if (position < dept.getSubdepts().size()){
-			Department depts = dept.getSubdepts().get(position);
-			intent = new Intent(this, DepartmentClickActivity.class);
-			intent.putExtra("Department", depts);
-		//A Employee is given to the next activity
-		} else {
-			//The Manager
-			if (position == dept.getSubdepts().size()){
-				Employee emp = dept.getManager();
-				intent = new Intent(this, EmployeeClickActivity.class);
-				intent.putExtra("Employee", emp);
-				//The normal Employee
+		
+		if (dept.getManager() == null){			
+			if (position < dept.getSubdepts().size()){
+				Department depts = dept.getSubdepts().get(position);
+				intent = new Intent(this, DepartmentClickActivity.class);
+				intent.putExtra("Department", depts);
+			//A Employee is given to the next activity
 			} else {
 				Employee emp = dept.getEmployees().get(position-dept.getSubdepts().size()-1);
 				intent = new Intent(this, EmployeeClickActivity.class);
 				intent.putExtra("Employee", emp);
+			}
+		} else {			
+			if (position == 0){
+				Employee manager = dept.getManager();
+				intent = new Intent(this, EmployeeClickActivity.class);
+				intent.putExtra("Employee", manager);
+			} else {
+				if (position <= dept.getSubdepts().size()){
+					Department depts = dept.getSubdepts().get(position-1);
+					intent = new Intent(this, DepartmentClickActivity.class);
+					intent.putExtra("Department", depts);
+				} else {
+					Employee emp = dept.getEmployees().get(position-dept.getSubdepts().size()-1);
+					intent = new Intent(this, EmployeeClickActivity.class);
+					intent.putExtra("Employee", emp);
+				}
+				
 			}
 		}
 		startActivity(intent);

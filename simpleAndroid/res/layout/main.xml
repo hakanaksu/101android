@@ -9,7 +9,7 @@
 		android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="50"
-        android:text="@string/company_name"
+        android:text="company"
         android:onClick="onButtonClick"
         android:textSize="15dp" 
         android:padding="20dp"/>	    
@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="50"
-        android:text="@string/load_test_company"
+        android:text="load sample company"
         android:onClick="onButtonClick"
         android:textSize="15dp" 
         android:padding="20dp" />

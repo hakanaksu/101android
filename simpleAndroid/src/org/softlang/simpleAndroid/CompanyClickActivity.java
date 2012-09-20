@@ -30,7 +30,7 @@ public class CompanyClickActivity extends ListActivity {
 		
 		deptsString = new String[depts.size()];
 		for(int i = 0; i < depts.size(); i++){
-			deptsString[i] = depts.get(i).getName();
+			deptsString[i] = "[D] " + depts.get(i).getName();
 		}
 		adapter = new ArrayAdapter<String>(	this,
 											android.R.layout.simple_list_item_1,

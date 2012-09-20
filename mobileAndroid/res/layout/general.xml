@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:stretchColumns="1" >
+
+       <TableRow
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" >
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/mode_settings"
+               android:textAppearance="?android:attr/textAppearanceLarge" />
+
+       </TableRow>
+
+       <TableRow
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" >
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/work_mode"
+               android:layout_gravity="center" />
+
+           <ToggleButton
+               android:id="@+id/tbt_work_general"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textOff="@string/off"
+               android:textOn="@string/on" 
+               android:layout_gravity="center"
+               android:onClick="onButtonClick"/>
+           
+
+       </TableRow>
+   </TableLayout>

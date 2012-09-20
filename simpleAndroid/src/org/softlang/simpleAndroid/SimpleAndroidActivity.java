@@ -33,7 +33,7 @@ public class SimpleAndroidActivity extends Activity {
 				intent.putExtra("Company",loadedCompany);
 				startActivity(intent);
 			}else {
-				Toast.makeText(this, R.string.company_not_loaded, Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "company not loaded", Toast.LENGTH_SHORT).show();
 			}
 			break;
 			

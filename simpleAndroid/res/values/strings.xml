@@ -1,11 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SimpleAndroid</string>
-    <string name="company_name">Company</string>
-    <string name="load_test_company">load sample Company</string>
-    <string name="company_not_loaded">Company not loaded</string>
-    <string name="name">Name</string>
-    <string name="address">Address</string>
-    <string name="salary">Salary</string>
-
 </resources>

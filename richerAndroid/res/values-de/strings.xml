@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">richerAndroid</string>
+    <string name="department">Abteilung</string>
+    <string name="company">Firma</string>
+    <string name="employee">Arbeiter</string>
+    <string name="name">Name</string>
+    <string name="address">Adresse</string>
+    <string name="salary">Gehalt</string>
+    <string name="load_test_company">Lade eine Testfirma</string>
+    <string name="company_not_loaded">Firma nicht geladen</string>
+    <string name="newCompany">Firma erstellen</string>
+    <string name="editCompany">Firma bearbeiten</string>
+    <string name="deleteCompany">Firma Löschen</string>
+    <string name="loadCompany">Firma laden</string>
+    <string name="cancel">Schließen</string>
+    <string name="ok">OK</string>
+    <string name="yes">Ja</string>
+    <string name="no">Nein</string>
+    <string name="inuse">Wird verwendet</string>
+    <string name="areyousure">Bist du dir sicher?</string>
+    <string name="successful">Erfolgreich</string>
+    <string name="namealreadyexists">Name besteht bereits</string>
+    <string name="invalidname">Ungültiger Name</string>
+    <string name="chooseacompany">Wähle eine Firma</string>
+    <string name="nameoraddressisempty">Name oder Adresse ist leer</string>
+    <string name="addEmployee">Arbeiter hinzufügen</string>
+    <string name="createtheemployee">Erstelle den Arbeiter</string>
+    <string name="invalidsalaray">Ungültiges Gehalt</string>
+    <string name="addDepartment">Abteilung hinzufügen</string>
+    <string name="discardchanges">Änderung verwerfen?</string>
+    <string name="youvechangedsth">Etwas wurde verändert!</string>
+    <string name="save">Speichern</string>
+    <string name="copy">Kopieren</string>
+    <string name="paste">Einfügen</string>
+    <string name="delete">Löschen</string>
+    <string name="processfailed">Prozess fehlgeschlagen</string>
+    <string name="setasmanager">Als Manager setzen</string>
+    <string name="rename">Unbenennen</string>
+</resources>
