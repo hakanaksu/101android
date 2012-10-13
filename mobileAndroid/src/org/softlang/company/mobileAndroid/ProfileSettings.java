@@ -114,6 +114,7 @@ public class ProfileSettings extends Activity {
 					path.listFiles()[i].delete();
 				profile = null;
 				onCreate(null);
+				settings.edit().putInt("profile", 0).commit();
 				Toast.makeText(this, R.string.successful, Toast.LENGTH_SHORT).show();
 			}
 			break;
