@@ -17,15 +17,20 @@ import org.w3c.dom.Element;
 public class ProfileXMLParser {
 
 	// XML Tag names
+	private final static String PROFILE = "Profile";
+	private final static String EMPLOYEE = "Employee";
 	private final static String COMPANYNAME = "CompanyName";
 	private final static String EMLOYEENAME = "EmployeeName";
 	private final static String ADDRESS = "Address";
+	private final static String SALARY = "Salary";
 	private final static String MONEYPERHOUR = "MoneyPerHour";
+	private final static String GEOCOORDINATES = "geoCoordinates";
 	private final static String NWLONGITUDE = "NorthWestLongitude";
 	private final static String NWLATITUDE = "NorthWestLatitude";
 	private final static String SELONGITUDE = "SouthEastLongitude";
 	private final static String SELATITUDE = "SouthEastLatitude";
-	private static final String TOTALTIME = "TotalTime";
+	private final static String TOTALTIME = "TotalTime";
+
 	
 	
 	public static void exportXMLFromProfile (Profile profile, String filename, File path){
@@ -35,11 +40,11 @@ public class ProfileXMLParser {
 	 
 			// root elements
 			Document doc = docBuilder.newDocument();
-			Element rootElement = doc.createElement("Profile");
+			Element rootElement = doc.createElement(PROFILE);
 			doc.appendChild(rootElement);
 	 
 			// employee elements
-			Element employee = doc.createElement("Employee");
+			Element employee = doc.createElement(EMPLOYEE);
 			rootElement.appendChild(employee);
 
 			// companyName elements
@@ -58,7 +63,7 @@ public class ProfileXMLParser {
 			employee.appendChild(address);
 			
 			// salary elements
-			Element salary = doc.createElement("Salary");
+			Element salary = doc.createElement(SALARY);
 			rootElement.appendChild(salary);
 	 
 			// moneyPerHour elements
@@ -72,7 +77,7 @@ public class ProfileXMLParser {
 			salary.appendChild(totalTime);
 			
 			// geoCoordinates elements
-			Element geoCoordinates = doc.createElement("geoCoordinates");
+			Element geoCoordinates = doc.createElement(GEOCOORDINATES);
 			rootElement.appendChild(geoCoordinates);
 			
 			// nwLongitude elements

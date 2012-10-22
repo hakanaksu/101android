@@ -10,6 +10,7 @@ import org.softlang.company.data.ProfileXMLParser;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -45,6 +46,9 @@ public class WorkService extends Service {
 		return mBinder;
 	}
 	
+	private long lastUpdateTime;
+	private Date date;
+	
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -53,26 +57,27 @@ public class WorkService extends Service {
 		
 		lManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 		cManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);		
+		
+		SharedPreferences settings = getSharedPreferences(getPackageName()+"_preferences", MODE_PRIVATE);	
+		int profileChoice = settings.getInt("profile", 0);
+		profile = ProfileXMLParser.importProfileFromXML(path.list()[profileChoice], path);
+		
+		date = new Date();
+		lastUpdateTime = date.getTime();
 	}
-	
-
-	private long lastUpdateTime;
-	private Date date;
-
 	
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		// TODO Auto-generated method stub
 		
-		Bundle bundle = intent.getExtras();
-		
-		if(bundle==null){
-			stopSelf();
+		/*
+		try{
+			Bundle bundle = intent.getExtras();
+			profile = (Profile) bundle.get("profile");
+		} catch (NullPointerException e) {
+
 		}
-		profile = (Profile) bundle.get("profile");
-		
-		date = new Date();
-		lastUpdateTime = date.getTime();
+		*/
 
 		//Proof Connection
 		netInfo = cManager.getActiveNetworkInfo();
